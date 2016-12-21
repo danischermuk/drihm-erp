@@ -21,6 +21,7 @@ var application_root = __dirname;
 /****************************MODELOS****************************/
 var User            = require('./models/user');
 var Supplier        = require('./models/supplier');
+var Product         = require('./models/product');
 var Building        = require('./models/building');
 var Appliance       = require('./models/appliance');
 var ApplianceGroup  = require('./models/ApplianceGroup');

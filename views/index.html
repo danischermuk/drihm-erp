@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>MiCasa</title>
+	<title>DRIHM</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -28,9 +28,9 @@
   <script type="text/javascript" src="javascripts/controllers/alert-ctrl.js"></script>
   <script type="text/javascript" src="javascripts/controllers/master-ctrl.js"></script>
   <script type="text/javascript" src="javascripts/controllers/settings-ctrl.js"></script>
-  <script type="text/javascript" src="javascripts/controllers/room-ctrl.js"></script>
-  <script type="text/javascript" src="javascripts/controllers/building-ctrl.js"></script>
   <script type="text/javascript" src="javascripts/controllers/dash-ctrl.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/suppliers-ctrl.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/supplier-ctrl.js"></script>
 
 </head>
 <body ng-controller="MasterCtrl">
@@ -41,7 +41,7 @@
         md-is-locked-open="$mdMedia('gt-md')"
         md-whiteframe="4">
       <md-toolbar class="material-theme-light material-medium-tall">
-        <h1 class="md-toolbar-tools">DanHome</h1>
+        <h1 class="md-toolbar-tools">DRIHM S.R.L.</h1>
       </md-toolbar>
 	  <md-content>
 		<!-- CONTENIDO DEL SIDENAV -->
@@ -52,14 +52,15 @@
 				<p> {{ dashboard.name }} </p>
 				<md-icon md-svg-icon="{{dashboard.iconUrl}}" ></md-icon>
 			</md-list-item>
-		<!-- BUILDINGS con sus ROOMS -->
-			<md-divider ng-repeat="building in current.buildings">
-			<md-subheader class="md-no-sticky" ng-click="showBuilding(building)">{{building.name}}</md-subheader>
-			<md-list-item ng-repeat="room in building.rooms" ng-click="showRoom(building, room)" >
-				<p> {{ room.name }} </p>
-				<md-icon md-svg-icon="{{room.iconUrl}}" ></md-icon>
+		<!-- PROVEEDORES -->
+			<md-list-item ng-click="go('suppliers')" >
+				<p> Proveedores </p>
 			</md-list-item>
-			</md-divider>
+		<!-- PRODUCTOS -->
+			<md-list-item ng-click="go('suppliers')" >
+				<p> Productos </p>
+			</md-list-item>
+
 		<!-- Boton de SETTINGS -->
 			<md-divider></md-divider>
 			<md-list-item ng-click="go('settings')">

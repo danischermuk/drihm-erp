@@ -5,7 +5,6 @@ var Supplier  = mongoose.model('Supplier');
 
 // Create endpoint /api/supplier/ for GET
 exports.getSuppliers = function(req, res) {
-  // Find all Users
   Supplier.find(function(err, suppliers) {
     if (err)
       res.send(err);

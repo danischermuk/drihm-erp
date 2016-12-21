@@ -1,0 +1,14 @@
+<md-content layout-gt-xs="row" layout-wrap class="md-padding">
+			<md-card ng-repeat="supplier in suppliers" ng-click="showSupplier(supplier)">
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{supplier.name}}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-content>
+					<p>{{supplier._id}}</p>
+					<p>{{supplier.address}}</p>
+					<p>{{supplier.telephone}}</p>
+				</md-card-content>
+			</md-card>
+</md-content>

@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 
 var productSchema = new Schema({  
   name: 			{type:String, unique:true, required:true},
-  suppliers:		[{type : mongoose.Schema.ObjectId, ref : 'Supplier', required:true}],
+  suppliers:		[{type : mongoose.Schema.ObjectId, ref : 'Supplier'}],
   supplierCode: 	String,
   internalCode: 	String,
   description: 		String,

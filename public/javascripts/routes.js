@@ -14,66 +14,37 @@
         .state('index', {
             url: '/',
             templateUrl: 'templates/dashboard.html',
-
-            resolve: {
-                buildings: ['buildingService',
-                function(buildingService) {
-
-                    return buildingService.getBuildings();
-                }]
-            },
-
             controller: 'DashCtrl'
-        })
-        .state('tables', {
-            url: '/tables',
-            templateUrl: 'templates/tables.html'
         })
         .state('settings', {
             url: '/settings',
             templateUrl: 'templates/settings.html'
         })
-        .state('room', {
-            url: '/b/:buildingId/r/:roomId',
-            templateUrl: 'templates/room.html',
+        .state('suppliers', {
+            url: '/suppliers',
+            templateUrl: 'templates/suppliers.html',
 
             resolve: {
-                buildings: ['buildingService',
-                function(buildingService) {
-                    return buildingService.getBuildings();
-                }],
-                building: ['$stateParams', 'buildingService',
-                function($stateParams, buildingService) {
-                    return buildingService.getBuilding($stateParams.buildingId);
-                }],
-                room: ['$stateParams', 'buildingService',
-                function($stateParams, buildingService) {
-
-                    return buildingService.getBuildingRoom($stateParams.buildingId, $stateParams.roomId);
+                suppliers: ['supplierService',
+                function(supplierService) {
+                    return supplierService.getSuppliers();
                 }]
-
             },
 
-            controller: 'RoomCtrl'
+            controller: 'SuppliersCtrl'
         })
-        .state('building', {
-            url: '/b/:buildingId',
+        .state('supplier', {
+            url: '/supplier/:supplierId',
+            templateUrl: 'templates/supplier.html',
 
             resolve: {
-                buildings: ['buildingService',
-                function(buildingService) {
-
-                    return buildingService.getBuildings();
-                }],
-                building: ['$stateParams', 'buildingService',
-                function($stateParams, buildingService) {
-
-                    return buildingService.getBuilding($stateParams.buildingId);
+                supplier: ['$stateParams', 'supplierService',
+                function($stateParams, supplierService) {
+                    return supplierService.getSupplier($stateParams.supplierId);
                 }]
             },
 
-            templateUrl: 'templates/building.html',
-            controller: 'BuildingCtrl'
+            controller: 'SupplierCtrl'
         });
     }
     ]);

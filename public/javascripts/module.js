@@ -63,42 +63,30 @@ app.factory('userService', ['$http', function($http) {
     return userService;
 }]);
 
-app.factory('buildingService', ['$http', function($http) {
+app.factory('supplierService', ['$http', function($http) {
 
-    var urlBase = '/api/b';
-    var buildingService = {};
+    var urlBase = '/api/supplier';
+    var supplierService = {};
 
-    buildingService.getBuildings = function () {
+    supplierService.getSuppliers = function () {
         return $http.get(urlBase);
     };
 
-    buildingService.getBuilding = function (id) {
+    supplierService.getSupplier = function (id) {
         return $http.get(urlBase + '/' + id);
     };
 
-    buildingService.getBuildingsByUser = function (id) {
-        return $http.get(urlBase + '/user/' + id);
-    };
-
-    buildingService.insertBuilding = function (cust) {
+    supplierService.insertSupplier = function (cust) {
         return $http.post(urlBase, cust);
     };
 
-    buildingService.updateBuilding = function (cust) {
+    supplierService.updateSupplier = function (cust) {
         return $http.put(urlBase + '/' + cust.ID, cust)
     };
 
-    buildingService.deleteBuilding = function (id) {
+    supplierService.deleteSupplier = function (id) {
         return $http.delete(urlBase + '/' + id);
     };
 
-    buildingService.getBuildingRoom = function (buildingId, roomId) {
-        return $http.get(urlBase + '/' + buildingId + '/r/' + roomId);
-    };
-
-    buildingService.insertBuildingRoom = function (id, room) {
-        return $http.post(urlBase + '/' + id + '/r', room);
-    };
-    return buildingService;
+    return supplierService;
 }]);
-

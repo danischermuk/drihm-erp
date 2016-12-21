@@ -7,7 +7,7 @@ var userController 		= require('./user');
 var buildingController 	= require('./building');
 var applianceController = require('./appliance');
 var supplierController 	= require('./supplier');
-
+var productController 	= require('./product');
 
 
 // Define Routes
@@ -44,7 +44,23 @@ router.route('/supplier/:supplier_id')
 	.get 	(authController.isAuthenticated, supplierController.getSupplier)
 	.put 	(authController.isAuthenticated, supplierController.updateSupplier)
 	.delete (authController.isAuthenticated, supplierController.deleteSupplier);
-	
+
+/**********************************************************
+						PRODUCT API
+***********************************************************/
+
+router.route('/product')
+	.get 	(authController.isAuthenticated, productController.getProducts)
+	.post 	(authController.isAuthenticated, productController.postProduct);
+
+router.route('/product/:product_id')
+	.get 	(authController.isAuthenticated, productController.getProduct)
+	.put 	(authController.isAuthenticated, productController.updateProduct)
+	.delete (authController.isAuthenticated, productController.deleteProduct);
+
+router.route('/product/supplier/:supplier_id')
+	.get 	(authController.isAuthenticated, productController.getProductsOfSupplier);
+
 /**********************************************************
 						BUILDING API
 ***********************************************************/
